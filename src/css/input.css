@@ -1,0 +1,31 @@
+@import "tailwindcss";
+
+@theme {
+    --color-primary: #242424;
+    --color-second: #9a9a9a;
+    --color-third: #ffffff;
+    --color-fourth: #ffba00;
+
+    --font-display: 'Poppins', sans-serif;
+}
+
+.active {
+    transition: right .4s;
+    right: 0%;
+}
+
+#rates-body tr td:last-child {
+    margin-left: 4rem;
+}
+
+#rates-body tr{
+    border-radius: 0.25rem;
+    display: flex;
+    gap: 2.5rem;
+    padding: 0.5rem;
+    align-items: center;
+}
+
+#rates-body tr:nth-child(odd) {
+    background-color: var(--color-third);
+}
