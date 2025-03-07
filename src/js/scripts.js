@@ -1,5 +1,9 @@
-const headerNav = document.getElementById('header-nav');
+const headerNav = document.getElementById("header-nav");
 
-function toggleMenu () {
-    headerNav.classList.toggle("active");
+function toggleMenu() {
+  headerNav.classList.toggle("active");
+}
+
+function addTrInTable(coin, princing, change) {
+  //
 }

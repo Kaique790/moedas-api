@@ -15,20 +15,21 @@
 </head>
 
 <body class="h-dvh w-dvw font-display">
-    <header class="py-2 w-full bg-primary text-third flex justify-between items-center px-2">
-        <h2>
+    <header class="py-2 w-full bg-primary text-third flex justify-between items-center px-2 md:py-4 md:px-4">
+        <h2 class="text-2xl">
             Moedas
             <span class="text-fourth font-bold">API</span>
         </h2>
-        <nav id="header-nav" class="text-third text-2xl font-bold fixed h-dvh w-full top-0 -right-full bg-second flex flex-col items-center justify-evenly">
-            <button onclick="toggleMenu()" class="absolute top-0 right-2 p-2">
-                <i class="bi bi-x-lg text-2xl"></i>
+        <nav id="header-nav" class="text-third text-2xl font-bold fixed h-dvh w-full top-0 -right-full bg-second flex flex-col items-center justify-evenly
+         md:h-5 md:right-0 md:bg-transparent md:static md:flex-row md:w-auto md:gap-16 md:text-[1.25rem] md:font-medium">
+            <button onclick="toggleMenu()" class="absolute cursor-pointer top-4 right-2 p-2 md:hidden">
+                <i class="bi bi-x-lg text-5xl"></i>
             </button>
-            <a href="#">Cotação</a>
-            <a href="#">Wiki</a>
-            <a href="#">Notícias</a>
+            <a href="#" class="hover:text-fourth duration-400" >Cotação</a>
+            <a href="#" class="hover:text-fourth duration-400">Wiki</a>
+            <a href="#" class="hover:text-fourth duration-400">Notícias</a>
         </nav>
-        <button onclick="toggleMenu()" class="text-2xl">
+        <button onclick="toggleMenu()" class="text-4xl md:hidden cursor-pointer">
             <i class="bi bi-list"></i>
         </button>
     </header>
@@ -52,7 +53,7 @@
         <section class="flex items-center justify-center flex-col bg-second rounded-t-2xl py-3">
             <h3 class="my-3 font-bold text-lg">Mundo das moedas em tempo real:</h3>
 
-            <table class="flex flex-col justify-center border-collapse font-medium">
+            <table id="table" class="flex flex-col justify-center border-collapse font-medium">
                 <thead class="bg-fourth rounded-md">
                     <tr class="flex gap-10 px-4">
                         <th>Moeda</th>
@@ -63,7 +64,7 @@
 
                 <tbody id="rates-body" class="flex flex-col py-2">
                     <tr>
-                        <td >USD - Dólar</td>
+                        <td>USD - Dólar</td>
                         <td id="usd-princing">-</td>
                         <td id="usd-change" class="text-right">-</td>
                     </tr>
@@ -79,7 +80,7 @@
     </main>
 
     <script src="./src/js/scripts.js"></script>
-    <script src="./src/js/index.js"></script>
+    <script type="module" src="./src/js/services.js"></script>
 </body>
 
 </html>
