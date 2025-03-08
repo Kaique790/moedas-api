@@ -5,18 +5,17 @@
     --color-second: #9a9a9a;
     --color-third: #ffffff;
     --color-fourth: #ffba00;
+    --color-fifith: #ffd153;
 
     --font-display: 'Poppins', sans-serif;
 }
 
 .active {
-    transition: right .4s;
     right: 0%;
 }
 
 #rates-body tr td:last-child {
     font-weight: bold;
-    margin-left: 4rem;
     color: var(--color-fourth);
 }
 
@@ -24,8 +23,15 @@
     border-radius: 0.25rem;
     display: flex;
     gap: 2.5rem;
-    padding: 0.5rem;
+    padding-inline: 1rem;
+    padding-block: 0.5rem;
     align-items: center;
+    display: flex;
+    justify-content: space-between;
+
+    td {
+        line-height: 1.4;
+    }
 }
 
 #rates-body tr:nth-child(odd) {
