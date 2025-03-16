@@ -1,39 +1,51 @@
 @import "tailwindcss";
 
 @theme {
-    --color-primary: #242424;
-    --color-second: #9a9a9a;
-    --color-third: #ffffff;
-    --color-fourth: #ffba00;
-    --color-fifith: #ffd153;
+  --color-primary: #242424;
+  --color-second: #9a9a9a;
+  --color-third: #ffffff;
+  --color-fourth: #ffba00;
+  --color-fifith: #ffa900;
 
-    --font-display: 'Poppins', sans-serif;
+  --font-display: "Poppins", sans-serif;
+}
+
+section.scrollbar-custom::-webkit-scrollbar {
+  width: 1px;
+}
+
+.scrollbar-custom {
+  scrollbar-width: 0;
 }
 
 .active {
-    right: 0%;
+  right: 0%;
 }
 
 #rates-body tr td:last-child {
-    font-weight: bold;
-    color: var(--color-fourth);
+  font-weight: bold;
+  color: var(--color-fourth);
 }
 
-#rates-body tr{
-    border-radius: 0.25rem;
-    display: flex;
-    gap: 2.5rem;
-    padding-inline: 1rem;
-    padding-block: 0.5rem;
-    align-items: center;
-    display: flex;
-    justify-content: space-between;
+#rates-body tr {
+  border-radius: 0.25rem;
+  display: flex;
+  gap: 2.5rem;
+  padding-inline: 1rem;
+  padding-block: 0.5rem;
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
 
-    td {
-        line-height: 1.4;
-    }
+  td {
+    line-height: 1.4;
+  }
+
+  td:nth-child(1) {
+    padding-right: 3rem;
+  }
 }
 
 #rates-body tr:nth-child(odd) {
-    background-color: var(--color-third);
+  background-color: var(--color-third);
 }

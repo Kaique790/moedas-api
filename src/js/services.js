@@ -1,29 +1,34 @@
 async function getValues() {
   try {
-    const response = await fetch(
-      "https://economia.awesomeapi.com.br/json/last/USD-BRL,GBP-BRL"
-    );
-    
-    const data = await response.json();
+    const response = await fetch("https://economia.awesomeapi.com.br/json/all");
 
-    const usdRate = data.USDBRL;
-    const gbpRate = data.GBPBRL;
+    const coins = await response.json();
 
-    const usdChangeElement = document.getElementById("usd-change");
-    const gbpChangeElement = document.getElementById("gbp-change");
-
-    const usdPrincingElement = document.getElementById("usd-princing");
-    const gbpPrincingElement = document.getElementById("gbp-princing");
-  
-    usdPrincingElement.textContent = parseFloat(usdRate.bid).toFixed(2);
-    gbpPrincingElement.textContent = parseFloat(gbpRate.bid).toFixed(2);
-
-    usdChangeElement.textContent = `${parseFloat(usdRate.pctChange).toFixed(2)}% ${usdRate.pctChange > 0 ? '↑' : '↓'}`
-    gbpChangeElement.textContent = `${parseFloat(gbpRate.pctChange).toFixed(2)}% ${gbpRate.pctChange > 0 ? '↑' : '↓'}`
-
-    if (usdRate.pctChange < 0) {usdChangeElement.style.color = "red" }
-    if (gbpRate.pctChange < 0){ gbpChangeElement.style.color = "red" }
-  } catch (err) {}
+    return coins;
+  } catch (err) {
+    console.error(err);
+    return {};
+  }
 }
 
-getValues();
+const coins = Object.entries(getValues());
+
+async function main() {
+  const coinsData = await getValues();
+
+  const coins = Object.entries(coinsData);
+
+  const coinsList = coins.map(([key, value]) => {
+    return {
+      code: value.code,
+      pricing: parseFloat(value.bid).toFixed(2),
+      change: parseFloat(value.pctChange).toFixed(2),
+    };
+  });
+
+  return coinsList;
+}
+
+main();
+
+export default main;

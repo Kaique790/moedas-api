@@ -39,8 +39,8 @@
     --color-second: #9a9a9a;
     --color-third: #ffffff;
     --color-fourth: #ffba00;
-    --color-fifith: #ffd153;
-    --font-display: 'Poppins', sans-serif;
+    --color-fifith: #ffa900;
+    --font-display: "Poppins", sans-serif;
   }
 }
 @layer base {
@@ -248,14 +248,17 @@
   .h-dvh {
     height: 100dvh;
   }
-  .w-dvw {
-    width: 100dvw;
-  }
   .w-full {
     width: 100%;
   }
   .max-w-120 {
     max-width: calc(var(--spacing) * 120);
+  }
+  .max-w-180 {
+    max-width: calc(var(--spacing) * 180);
+  }
+  .max-w-full {
+    max-width: 100%;
   }
   .border-collapse {
     border-collapse: collapse;
@@ -275,9 +278,6 @@
   .justify-between {
     justify-content: space-between;
   }
-  .justify-center {
-    justify-content: center;
-  }
   .justify-evenly {
     justify-content: space-evenly;
   }
@@ -289,6 +289,9 @@
   }
   .gap-12 {
     gap: calc(var(--spacing) * 12);
+  }
+  .overflow-scroll {
+    overflow: scroll;
   }
   .rounded-md {
     border-radius: var(--radius-md);
@@ -336,9 +339,6 @@
   }
   .text-center {
     text-align: center;
-  }
-  .text-right {
-    text-align: right;
   }
   .font-display {
     font-family: var(--font-display);
@@ -421,6 +421,11 @@
       }
     }
   }
+  .max-lg\:h-full {
+    @media (width < 64rem) {
+      height: 100%;
+    }
+  }
   .md\:static {
     @media (width >= 48rem) {
       position: static;
@@ -444,16 +449,6 @@
   .md\:w-auto {
     @media (width >= 48rem) {
       width: auto;
-    }
-  }
-  .md\:w-full {
-    @media (width >= 48rem) {
-      width: 100%;
-    }
-  }
-  .md\:max-w-none {
-    @media (width >= 48rem) {
-      max-width: none;
     }
   }
   .md\:flex-row {
@@ -502,6 +497,11 @@
       display: grid;
     }
   }
+  .lg\:max-h-105 {
+    @media (width >= 64rem) {
+      max-height: calc(var(--spacing) * 105);
+    }
+  }
   .lg\:w-full {
     @media (width >= 64rem) {
       width: 100%;
@@ -537,9 +537,10 @@
       padding-inline: calc(var(--spacing) * 14);
     }
   }
-  .lg\:py-14 {
+  .lg\:text-5xl {
     @media (width >= 64rem) {
-      padding-block: calc(var(--spacing) * 14);
+      font-size: var(--text-5xl);
+      line-height: var(--tw-leading, var(--text-5xl--line-height));
     }
   }
   .lg\:text-\[1\.25rem\] {
@@ -557,6 +558,12 @@
       font-size: 150%;
     }
   }
+}
+section.scrollbar-custom::-webkit-scrollbar {
+  width: 1px;
+}
+.scrollbar-custom {
+  scrollbar-width: 0;
 }
 .active {
   right: 0%;
@@ -576,6 +583,9 @@
   justify-content: space-between;
   td {
     line-height: 1.4;
+  }
+  td:nth-child(1) {
+    padding-right: 3rem;
   }
 }
 #rates-body tr:nth-child(odd) {
