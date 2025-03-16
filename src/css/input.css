@@ -46,6 +46,14 @@ section.scrollbar-custom::-webkit-scrollbar {
   }
 }
 
+@media (max-width: 640px) {
+  #rates-body tr {
+    td:nth-child(1) {
+      padding-right: 2.5rem;
+    }
+  }
+}
+
 #rates-body tr:nth-child(odd) {
   background-color: var(--color-third);
 }
