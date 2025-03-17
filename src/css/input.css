@@ -49,7 +49,7 @@ section.scrollbar-custom::-webkit-scrollbar {
 @media (max-width: 640px) {
   #rates-body tr {
     td:nth-child(1) {
-      padding-right: 2.5rem;
+      padding-right: 0rem;
     }
   }
 }

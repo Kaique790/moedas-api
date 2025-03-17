@@ -17,18 +17,20 @@
 <body class="h-dvh max-w-vw font-display lg:text-[150%] sm:text-[87%] text-[72%]">
     <header
         class="py-2 w-full shadow-2xl bg-primary text-third flex justify-center items-center px-2 md:py-4 md:px-4 lg:px-14">
-        <div class="flex justify-between items-center w-full lg:max-w-350">
-            <h2 class="text-2xl">
-                Moedas
-                <span class="text-fourth font-bold">API</span>
-            </h2>
+        <div class="flex justify-between items-center w-full lg:max-w-320">
+            <a href="#">
+                <h2 class="text-2xl">
+                    Moedas
+                    <span class="text-fourth font-bold">API</span>
+                </h2>
+            </a>
             <nav id="header-nav"
                 class="text-third text-2xl font-bold fixed h-dvh w-full top-0 -right-full bg-second flex flex-col items-center justify-evenly duration-300
                 md:h-5 md:right-0 md:bg-transparent md:static md:flex-row md:w-auto md:gap-16 md:text-[1.25rem] md:font-medium md:duration-initial">
                 <button id="show-nav" class="absolute cursor-pointer top-4 right-2 p-2 md:hidden">
                     <i class="bi bi-x-lg text-5xl"></i>
                 </button>
-                <a href="#" class="hover:text-fourth duration-400">Cotação</a>
+                <a href="./pages/currency-quotation.html" class="hover:text-fourth duration-400">Cotação</a>
                 <a href="#" class="hover:text-fourth duration-400">Wiki</a>
                 <a href="#" class="hover:text-fourth duration-400">Notícias</a>
             </nav>
@@ -38,14 +40,17 @@
         </div>
     </header>
     <main
-        class="lg:grid lg:grid-cols-2 max-sm:px-0 max-md:px-3 max-[1400px]:px-10 max-w-full lg:py-14 gap-12 h-dvh lg:max-w-352 min-[1600]:px-0 mx-auto">
+        class="lg:grid lg:grid-cols-2 max-sm:px-0 max-md:px-3 max-[1400px]:px-10 max-w-full lg:py-14 gap-12 max-h-full lg:max-w-330 min-[1600]:px-0 mx-auto">
         <section class="lg:max-w-none lg:w-full font-normal py-2 my-12 max-w-120 mx-auto">
             <h1 class="text-center text-3xl font-bold lg:text-5xl">
                 Moedas - API
             </h1>
             <h2 class="text-center my-8">
                 Um site com tudo que você precisa saber sobre cotações e novidades
-                sobre todas as moedas. <span class="font-semibold">Converta qualquer moeda aqui!</span>
+                sobre todas as moedas.
+                <a href="./pages/currency-quotation.html">
+                    <span class="font-semibold underline">Converta qualquer moeda aqui!</span>
+                </a>
             </h2>
 
             <div class="mt-6 px-2">

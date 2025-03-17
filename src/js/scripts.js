@@ -44,10 +44,13 @@ function addTrInTable(coin, pricing, change) {
 
 async function addDatasInTable() {
   const coinsList = await main();
+  const tableExists = document.getElementById("rates-body");
 
-  coinsList.forEach(({ code, pricing, change }) => {
-    addTrInTable(code, pricing, change);
-  });
+  if (tableExists) {
+    coinsList.forEach(({ code, pricing, change }) => {
+      addTrInTable(code, pricing, change);
+    });
+  }
 }
 
 addDatasInTable();
