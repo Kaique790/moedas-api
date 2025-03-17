@@ -18,7 +18,16 @@ section.scrollbar-custom::-webkit-scrollbar {
   scrollbar-width: 0;
 }
 
-.active {
+@media (max-width: 768px) {
+  #header-nav {
+    right: -120%;
+    transform: rotate(90deg);
+    transition: all 0.5s;
+  }
+}
+
+#header-nav.active {
+  transform: rotate(0deg);
   right: 0%;
 }
 
