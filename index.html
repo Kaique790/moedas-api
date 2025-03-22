@@ -3,87 +3,111 @@
 
 <head>
     <meta charset="UTF-8" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link
         href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-        rel="stylesheet">
+        rel="stylesheet" />
+
     <link rel="stylesheet" href="./src/css/output.css" />
     <title>Moedas - API</title>
 </head>
 
-<body class="h-dvh max-w-vw font-display lg:text-[150%] sm:text-[87%] text-[72%]">
-    <header
-        class="py-2 w-full shadow-2xl bg-primary text-third flex justify-center items-center px-2 md:py-4 md:px-4 lg:px-14">
-        <div class="flex justify-between items-center w-full lg:max-w-320">
-            <a href="#">
-                <h2 class="text-2xl">
-                    Moedas
-                    <span class="text-fourth font-bold">API</span>
-                </h2>
-            </a>
-            <nav id="header-nav"
-                class="text-third text-2xl font-bold fixed h-dvh w-full top-0 -right-full bg-second flex flex-col items-center justify-evenly duration-300
-                md:h-5 md:right-0 md:bg-transparent md:static md:flex-row md:w-auto md:gap-16 md:text-[1.25rem] md:font-medium md:duration-initial">
-                <button id="show-nav" class="absolute cursor-pointer top-4 right-2 p-2 md:hidden">
-                    <i class="bi bi-x-lg text-5xl"></i>
-                </button>
-                <a href="./pages/currency-quotation.html" class="hover:text-fourth duration-400">Cotação</a>
-                <a href="#" class="hover:text-fourth duration-400">Wiki</a>
-                <a href="#" class="hover:text-fourth duration-400">Notícias</a>
+<body class="font-display bg-primary text-[1rem] h-dvh w-full">
+    <header class="bg-white">
+        <div class="flex justify-between items-center px-3 py-2 text-2xl font-bold text-primary">
+            <div class="flex items-center justify-center gap-1.5">
+                <i class="bi bi-coin text-4xl"></i>
+                <span class="text-second">API</span>
+            </div>
+            <div>
+                <i class="bi bi-list text-3xl"></i>
+            </div>
+            <nav class="hidden">
+                <a href="#">Início</a>
+                <a href="#">Cotação</a>
+                <a href="#">Cripto</a>
             </nav>
-            <button id="back-nav" class="text-4xl md:hidden cursor-pointer">
-                <i class="bi bi-list"></i>
-            </button>
         </div>
     </header>
-    <main
-        class="lg:grid lg:grid-cols-2 max-sm:px-0 max-md:px-3 max-[1400px]:px-10 max-w-full lg:py-14 gap-12 max-h-full lg:max-w-330 min-[1600]:px-0 mx-auto">
-        <section class="lg:max-w-none lg:w-full font-normal py-2 my-12 max-w-120 mx-auto">
-            <h1 class="text-center text-3xl font-bold lg:text-5xl">
-                Moedas - API
-            </h1>
-            <h2 class="text-center my-8">
-                Um site com tudo que você precisa saber sobre cotações e novidades
-                sobre todas as moedas.
-                <a href="./pages/currency-quotation.html">
-                    <span class="font-semibold underline">Converta qualquer moeda aqui!</span>
-                </a>
-            </h2>
+    <main class="text-white mt-12">
+        <div class="px-3">
+            <section id="hero">
+                <h1 class="text-5xl font-bold">
+                    Moedas
+                    <span class="text-yellow">API</span>
+                </h1>
+                <p class="mt-8 text-lg">
+                    O mundo financeiro em um só lugar. Vejas as mudanças em tempo real aqui.
+                </p>
 
-            <div class="mt-6 px-2">
-                <h2
-                    class="bg-fourth text-center text-primary font-semibold py-3 rounded-md shadow-md cursor-pointer hover:bg-fifith duration-300">
-                    Porque o dólar não para de subir
-                </h2>
-            </div>
-        </section>
+                <div class="text-4xl mt-8 flex items-center justify-start gap-2">
+                    <span class="text-6xl text-yellow font-bold">R$</span>
+                    <i class="bi bi-arrow-right"></i>
+                    <span class="border-5 rounded-full p-2 inline-flex items-center justify-center">
+                        <i class="bi bi-currency-euro mr-1"></i>
+                    </span>
 
-        <section
-            class="max-w-120 scrollbar-custom overflow-scroll max-lg:h-full lg:max-h-105 mx-auto flex items-center justify-start flex-col bg-second rounded-t-2xl p-3 lg:w-20rem lg:rounded-2xl lg:text-[80%] gap-4 lg:min-w-full">
-            <h3 class="my-3 font-bold text-lg lg:text-[1.25rem] max-sm:text-sm">
-                Mundo das moedas em tempo real:
-            </h3>
-            <table id="table"
-                class="w-full max-lg:h-full flex flex-col px-6 max-md:px-0 justify-start border-collapse font-medium">
-                <thead class="bg-fourth rounded-md ">
-                    <tr class="flex justify-between px-4 py-1">
-                        <th>Moeda</th>
-                        <th>Preço</th>
-                        <th>/24h</th>
-                    </tr>
-                </thead>
+                    <i class="bi bi-arrow-right"></i>
 
-                <tbody id="rates-body" class="flex flex-col py-2 justify-between">
-                </tbody>
-            </table>
-        </section>
+                    <span class="border-5 rounded-full p-2 px-2.5 inline-flex items-center justify-center">
+                        <i class="bi bi-currency-dollar"></i>
+                    </span>
+
+                </div>
+
+                <section
+                    class="mt-8 px-6 pb-8 flex items-center flex-col bg-white text-primary rounded-2xl border-b-8 border-second">
+
+                    <h2 class="text-center font-bold shadow-md inline mt-[-1rem] rounded-lg p-3 bg-yellow">
+                        Tempo real
+                    </h2>
+
+
+                    <div class="mt-6 w-full font-bold">
+                        <table id="coins-table" class="w-full border-collapse">
+                            <thead>
+                                <tr class="bg-second rounded-2xl">
+                                    <th class="text-left">Moeda</th>
+                                    <th>Preço</th>
+                                    <th class="text-right">/24h</th>
+                                </tr>
+                            </thead>
+
+                            <tbody class="w-full">
+                                <tr>
+                                    <td>USD</td>
+                                    <td>5.75$</td>
+
+                                    <td><i class="bi bi-arrow-down">0.05%</td>
+                                </tr>
+                                <tr>
+                                    <td>USD</td>
+                                    <td>5.75$</td>
+
+                                    <td><i class="bi bi-arrow-down">0.05%</td>
+                                </tr>
+                                <tr>
+                                    <td>USD</td>
+                                    <td>5.75$</td>
+
+                                    <td><i class="bi bi-arrow-down">0.05%</td>
+                                </tr>
+                                <tr>
+                                    <td>USD</td>
+                                    <td>5.75$</td>
+
+                                    <td><i class="bi bi-arrow-down">0.05%</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+            </section>
+        </div>
     </main>
-
-    <script type="module" src="./src/js/scripts.js"></script>
-    <script type="module" src="./src/js/services.js"></script>
 </body>
 
 </html>

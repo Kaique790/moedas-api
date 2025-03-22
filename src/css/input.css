@@ -2,67 +2,36 @@
 
 @theme {
   --color-primary: #242424;
-  --color-second: #9a9a9a;
-  --color-third: #ffffff;
-  --color-fourth: #ffba00;
-  --color-fifith: #ffa900;
+  --color-second: #a6a6a6;
+  --color-yellow: #ffde59;
+  --color-orange: #ff914d;
+  --color-white: #ffffff;
 
   --font-display: "Poppins", sans-serif;
 }
 
-section.scrollbar-custom::-webkit-scrollbar {
-  width: 1px;
-}
-
-.scrollbar-custom {
-  scrollbar-width: 0;
-}
-
-@media (max-width: 768px) {
-  #header-nav {
-    right: -120%;
-    transform: rotate(90deg);
-    transition: all 0.5s;
-  }
-}
-
-#header-nav.active {
-  transform: rotate(0deg);
-  right: 0%;
-}
-
-#rates-body tr td:last-child {
-  font-weight: bold;
-  color: var(--color-fourth);
-}
-
-#rates-body tr {
-  border-radius: 0.25rem;
-  display: flex;
-  gap: 2.5rem;
-  padding-inline: 1rem;
-  padding-block: 0.5rem;
-  align-items: center;
-  display: flex;
-  justify-content: space-between;
-
-  td {
-    line-height: 1.4;
+#coins-table {
+  thead {
+    box-sizing: 10em;
   }
 
-  td:nth-child(1) {
-    padding-right: 3rem;
+  th {
+    padding: 0.5rem;
   }
-}
 
-@media (max-width: 640px) {
-  #rates-body tr {
-    td:nth-child(1) {
-      padding-right: 0rem;
+  tbody {
+    td {
+      border-top: 0.6rem solid white;
+      background-color: var(--color-yellow);
+      padding: 0.5rem;
+      padding-inline: 0.7rem;
+    }
+
+    td:nth-child(3) {
+      text-align: right;
+    }
+    td:nth-child(2) {
+      text-align: center;
     }
   }
-}
-
-#rates-body tr:nth-child(odd) {
-  background-color: var(--color-third);
 }
