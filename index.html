@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" class="sm:text-[1.1rem]">
 
 <head>
     <meta charset="UTF-8" />
@@ -15,64 +15,67 @@
     <title>Moedas - API</title>
 </head>
 
-<body class="font-display bg-primary text-[1rem] h-dvh w-full">
-    <header class="bg-white">
-        <div class="flex justify-between items-center px-3 py-2 text-2xl font-bold text-primary">
+<body class="font-display bg-primary text-[1rem] h-dvh max-w-dvw">
+    <header class="bg-white fixed top-0 right-0 w-full">
+        <div class="max-w-[1024px] mx-auto flex justify-between items-center px-3 py-2 text-2xl font-bold text-primary">
             <div class="flex items-center justify-center gap-1.5">
                 <i class="bi bi-coin text-4xl"></i>
                 <span class="text-second">API</span>
             </div>
-            <div>
+            <div class="md:hidden">
                 <i class="bi bi-list text-3xl"></i>
             </div>
-            <nav class="hidden">
-                <a href="#">Início</a>
-                <a href="#">Cotação</a>
-                <a href="#">Cripto</a>
+            <nav class="hidden md:flex gap-10 text-[1.3rem] text-second">
+                <a href="#" class="underline text-primary duration-300 hover:text-second">Início</a>
+                <a href="#" class="hover:text-primary duration-300">Cotação</a>
+                <a href="#" class="hover:text-primary duration-300">Cripto</a>
             </nav>
         </div>
     </header>
-    <main class="text-white mt-12">
-        <div class="px-3">
-            <section id="hero">
-                <h1 class="text-5xl font-bold">
-                    Moedas
-                    <span class="text-yellow">API</span>
-                </h1>
-                <p class="mt-8 text-lg">
-                    O mundo financeiro em um só lugar. Vejas as mudanças em tempo real aqui.
-                </p>
+    <main class="text-white mt-30 w-full">
+        <div class="px-3 max-w-[1024px] w-full mx-auto flex items-center justify-center">
+            <section id="hero" class="lg:flex w-full md:gap-4 lg:justify-between">
+                <div class="flex flex-col min-[470px]:items-center lg:items-start">
+                    <h1 class="text-5xl font-bold sm:text-center lg:text-left">
+                        Moedas
+                        <span class="text-yellow">API</span>
+                    </h1>
+                    <p class="mt-8 text-lg max-sm:text-left min-[470px]:text-center text-center lg:text-left">
+                        O mundo financeiro em um só lugar. <br> Vejas as mudanças em tempo real aqui.
+                    </p>
 
-                <div class="text-4xl mt-8 flex items-center justify-start gap-2">
-                    <span class="text-6xl text-yellow font-bold">R$</span>
-                    <i class="bi bi-arrow-right"></i>
-                    <span class="border-5 rounded-full p-2 inline-flex items-center justify-center">
-                        <i class="bi bi-currency-euro mr-1"></i>
-                    </span>
+                    <div class="text-4xl mt-12 flex items-center justify-start gap-2">
+                        <span class="text-6xl text-yellow font-bold">R$</span>
+                        <i class="bi bi-arrow-right"></i>
+                        <span class="border-5 rounded-full p-2 inline-flex items-center justify-center">
+                            <i class="bi bi-currency-euro mr-1"></i>
+                        </span>
 
-                    <i class="bi bi-arrow-right"></i>
+                        <i class="bi bi-arrow-right"></i>
 
-                    <span class="border-5 rounded-full p-2 px-2.5 inline-flex items-center justify-center">
-                        <i class="bi bi-currency-dollar"></i>
-                    </span>
-
+                        <span class="border-5 rounded-full p-2 px-2.5 inline-flex items-center justify-center">
+                            <i class="bi bi-currency-dollar"></i>
+                        </span>
+                    </div>
                 </div>
 
-                <section
-                    class="mt-8 px-6 pb-8 flex items-center flex-col bg-white text-primary rounded-2xl border-b-8 border-second">
 
-                    <h2 class="text-center font-bold shadow-md inline mt-[-1rem] rounded-lg p-3 bg-yellow">
+                <section
+                    class="mt-16 px-6 pb-8 flex items-center flex-col bg-white text-primary rounded-2xl border-b-8 border-second lg:mt-0">
+
+                    <h2
+                        class="text-center text-2xl font-bold shadow-md inline mt-[-1rem] rounded-lg p-3 bg-yellow sm:px-20">
                         Tempo real
                     </h2>
 
 
-                    <div class="mt-6 w-full font-bold">
-                        <table id="coins-table" class="w-full border-collapse">
+                    <div class="mt-6 text-lg w-full font-bold max-w-[450px] lg:max-h-70 overflow-auto">
+                        <table class="coins-table w-full border-collapse lg:min-w-[400px]">
                             <thead>
-                                <tr class="bg-second rounded-2xl">
-                                    <th class="text-left">Moeda</th>
+                                <tr>
+                                    <th class="text-left rounded-l-lg bg-second">Moeda</th>
                                     <th>Preço</th>
-                                    <th class="text-right">/24h</th>
+                                    <th class="text-right rounded-r-lg bg-second max-[540px]:w-29">/24h</th>
                                 </tr>
                             </thead>
 
@@ -81,25 +84,40 @@
                                     <td>USD</td>
                                     <td>5.75$</td>
 
-                                    <td><i class="bi bi-arrow-down">0.05%</td>
+                                    <td>
+                                        <i class="bi bi-arrow-up"></i>
+                                        +0.05%
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td>USD</td>
                                     <td>5.75$</td>
 
-                                    <td><i class="bi bi-arrow-down">0.05%</td>
+                                    <td>
+                                        <i class="bi bi-arrow-down"></i>
+                                        -0.05%
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td>USD</td>
                                     <td>5.75$</td>
 
-                                    <td><i class="bi bi-arrow-down">0.05%</td>
+                                    <td>
+                                        <i class="bi bi-arrow-down"></i>
+                                        -0.05%
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td>USD</td>
                                     <td>5.75$</td>
 
-                                    <td><i class="bi bi-arrow-down">0.05%</td>
+                                    <td><i class="bi bi-arrow-up">+0.05%</td>
+                                </tr>
+                                <tr>
+                                    <td>USD</td>
+                                    <td>5.75$</td>
+
+                                    <td><i class="bi bi-arrow-up">+0.05%</td>
                                 </tr>
                             </tbody>
                         </table>
