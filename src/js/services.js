@@ -11,22 +11,10 @@ async function getValues(/*url*/) {
   }
 }
 
-async function main(/*function = getValues*/) {
+export async function main() {
   const coinsData = await getValues();
 
   const coins = Object.entries(coinsData);
 
-  //retornar somente a coins em forma de array, para ser mais abrangente
-
-  const coinsList = coins.map(([key, value]) => {
-    return {
-      code: value.code,
-      pricing: parseFloat(value.bid).toFixed(2),
-      change: parseFloat(value.pctChange).toFixed(2),
-    };
-  });
-
-  return coinsList;
+  return coins;
 }
-
-export default main;

@@ -1,15 +1,15 @@
-import main from "./services.js";
-// const showNav = document.getElementById("show-nav");
-// const backNav = document.getElementById("back-nav");
+import { main } from "./services.js";
+const showNav = document.getElementById("show-nav");
+const backNav = document.getElementById("back-nav");
 
-// backNav.addEventListener("click", () => toggleMenu());
-// showNav.addEventListener("click", () => toggleMenu());
+backNav.addEventListener("click", () => toggleMenu());
+showNav.addEventListener("click", () => toggleMenu());
 
-// const headerNav = document.getElementById("header-nav");
+const headerNav = document.getElementById("header-nav");
 
-// function toggleMenu() {
-//   headerNav.classList.toggle("active");
-// }
+export function toggleMenu() {
+  headerNav.classList.toggle("active");
+}
 
 function addTrInTable(coin, pricing, change) {
   const ratesTableBody = document.getElementById("rates-body");
@@ -24,7 +24,7 @@ function addTrInTable(coin, pricing, change) {
 
   const changeTd = document.createElement("td");
 
-  changeTd.textContent = `|${change}%`;
+  changeTd.textContent = `${change}%`;
 
   if (change > 0) {
     changeTd.textContent = `↑ ${change}%`;
@@ -43,8 +43,16 @@ function addTrInTable(coin, pricing, change) {
 }
 
 async function addDatasInTable() {
-  const coinsList = await main();
+  const coins = await main();
   const tableExists = document.getElementById("rates-body");
+
+  const coinsList = coins.map(([key, value]) => {
+    return {
+      code: value.code,
+      pricing: parseFloat(value.bid).toFixed(2),
+      change: parseFloat(value.pctChange).toFixed(2),
+    };
+  });
 
   if (tableExists) {
     coinsList.forEach(({ code, pricing, change }) => {
