@@ -1,15 +1,15 @@
 import main from "./services.js";
-const showNav = document.getElementById("show-nav");
-const backNav = document.getElementById("back-nav");
+// const showNav = document.getElementById("show-nav");
+// const backNav = document.getElementById("back-nav");
 
-backNav.addEventListener("click", () => toggleMenu());
-showNav.addEventListener("click", () => toggleMenu());
+// backNav.addEventListener("click", () => toggleMenu());
+// showNav.addEventListener("click", () => toggleMenu());
 
-const headerNav = document.getElementById("header-nav");
+// const headerNav = document.getElementById("header-nav");
 
-function toggleMenu() {
-  headerNav.classList.toggle("active");
-}
+// function toggleMenu() {
+//   headerNav.classList.toggle("active");
+// }
 
 function addTrInTable(coin, pricing, change) {
   const ratesTableBody = document.getElementById("rates-body");

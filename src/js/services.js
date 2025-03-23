@@ -1,4 +1,4 @@
-async function getValues() {
+async function getValues(/*url*/) {
   try {
     const response = await fetch("https://economia.awesomeapi.com.br/json/all");
 
@@ -11,12 +11,12 @@ async function getValues() {
   }
 }
 
-const coins = Object.entries(getValues());
-
-async function main() {
+async function main(/*function = getValues*/) {
   const coinsData = await getValues();
 
   const coins = Object.entries(coinsData);
+
+  //retornar somente a coins em forma de array, para ser mais abrangente
 
   const coinsList = coins.map(([key, value]) => {
     return {
@@ -28,7 +28,5 @@ async function main() {
 
   return coinsList;
 }
-
-main();
 
 export default main;
