@@ -18,7 +18,7 @@
 <body class="font-display bg-primary text-[1rem] lg:flex lg:flex-col lg:justify-between min-h-dvh max-w-dvw ">
     <header class="bg-white w-full">
         <div
-            class="max-w-5xl mx-auto flex justify-between items-center px-3 py-2 text-2xl font-bold text-primary md:max-w-140 lg:max-w-5xl">
+            class="max-w-5xl mx-auto flex justify-between items-center max-md:px-10 py-2 text-2xl font-bold text-primary md:max-w-140 lg:max-w-5xl">
             <a href="#" class="flex items-center justify-center gap-1.5">
                 <i class="bi bi-coin text-4xl"></i>
                 <span class="text-second">API</span>
@@ -27,7 +27,7 @@
                 <i id="show-nav" class="bi bi-list text-3xl cursor-pointer"></i>
             </div>
             <nav id="header-nav"
-                class="flex items-center gap-10 text-[1.3rem] text-second max-md:fixed max-md:min-h-dvh max-md:top-[-100%] max-md:right-[-100%] max-md:bg-yellow max-md:w-[60%] max-md:flex-col max-md:justify-around max-md:text-3xl max-md:z-10 max-md:border-l-4 max-md:border-primary">
+                class="flex items-center gap-10 text-[1.3rem] text-second max-md:fixed max-md:min-h-dvh max-md:top-[-100%] max-md:right-[-100%] max-md:bg-white max-md:w-[60%] max-md:flex-col max-md:justify-around max-md:text-3xl max-md:z-10 max-md:border-l-4 max-md:border-primary">
                 <i id="back-nav"
                     class="bi bi-x-lg text-3xl cursor-pointer z-50 absolute text-primary top-3 right-3 md:hidden"></i>
 
@@ -37,39 +37,36 @@
             </nav>
         </div>
     </header>
-    <main class="text-white mt-20 w-full h-dvh">
-        <div class="px-3 max-w-5xl w-full mx-auto md:max-w-140 lg:max-w-5xl">
+    <main class="text-white mt-20 w-full min-h-full">
+        <div class="max-md:px-10 max-w-5xl w-full mx-auto md:max-w-140 lg:max-w-5xl">
             <h1 class="text-5xl font-bold text-center">
                 Cotação
                 <span class="text-yellow">24h</span>
             </h1>
 
-            <section class="mt-14 lg:flex gap-4 w-full justify-between">
+            <section id="select-coins" class="mt-14 lg:flex gap-4 w-full justify-between">
                 <div
                     class="font-bold text-primary bg-white p-6 flex flex-col gap-4 text-5xl rounded-2xl border-b-8 border-second lg:max-w-80">
                     <input type="number" value="14.30" id="value-provided" class="border-b-2 border-second">
 
-                    <select id="select-coin" class="text-second font-bold text-4xl max-w-[8rem]">
+                    <select class="text-second font-bold text-4xl max-w-[8rem]">
                         <option selected>BRL</option>
-                        <option>BRL</option>
-                        <option>BRL</option>
-                        <option>BRL</option>
-                        <option>BRL</option>
                     </select>
                 </div>
-                <div
-                    class="my-12 font-bold text-primary bg-yellow p-5 flex flex-col items-center justify-center gap-4 text-4xl rounded-2xl border-b-8 border-orange">
-                    <h2>Converter</h2>
+
+                <div class="h-35">
+                    <button type="submit"
+                        class="my-12 font-bold cursor-pointer text-primary w-full bg-yellow p-5 flex flex-col items-center justify-center gap-4 text-4xl rounded-2xl border-b-8 border-orange duration-300 hover:bg-yellow-light active:border-b-0 active:translate-y-2">
+                        <h2>Converter</h2>
+                    </button>
                 </div>
+
                 <div
                     class="font-bold text-primary bg-white p-6 flex flex-col gap-4 text-5xl rounded-2xl border-b-8 border-second lg:max-w-80">
                     <input type="number" value="14.30" id="value-provided" class="border-b-2 border-second">
 
-                    <select id="select-coin" class="text-second font-bold text-4xl max-w-[8rem]">
+                    <select class="text-second font-bold text-4xl max-w-[8rem]">
                         <option selected>BRL</option>
-                        <option>BRL</option>
-                        <option>BRL</option>
-                        <option>BRL</option>
                         <option>BRL</option>
                     </select>
                 </div>
@@ -78,7 +75,7 @@
         </div>
     </main>
 
-    <footer class="bg-white opacity-80">
+    <footer class="bg-white opacity-80 mt-60">
         <div class="max-sm:text-center max-w-5xl mx-auto flex flex-col justify-between items-center px-3 py-2 text-xl md:max-w-140 lg:max-w-5xl"">
             <div class=" flex gap-6">
             <a href="https://www.linkedin.com/in/kaique-bezerra-dos-santos-575700262/" target="_blank">

@@ -1,4 +1,4 @@
-async function getValues(/*url*/) {
+async function getValues() {
   try {
     const response = await fetch("https://economia.awesomeapi.com.br/json/all");
 

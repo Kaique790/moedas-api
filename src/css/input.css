@@ -4,6 +4,7 @@
   --color-primary: #242424;
   --color-second: #a6a6a6;
   --color-yellow: #ffde59;
+  --color-yellow-light: #f7db6f;
   --color-orange: #ff914d;
   --color-white: #ffffff;
 
@@ -12,7 +13,7 @@
 
 body {
   scrollbar-width: thin;
-  scrollbar-color: #24242465 var(--color-second);
+  scrollbar-color: #24242465 var(--color-white);
 }
 
 #select-coin option[selected] {
@@ -20,7 +21,7 @@ body {
 }
 
 ::-webkit-scrollbar {
-  width: 2px;
+  width: 0.25rem;
   background: var(--color-white);
 }
 
@@ -63,9 +64,6 @@ body {
       background-color: var(--color-yellow);
       padding: 0.5rem;
       padding-inline: 0.7rem;
-    }
-
-    td {
     }
 
     td:nth-child(3) {
