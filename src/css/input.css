@@ -48,6 +48,10 @@ body {
     right: 0;
     transform: rotate(0deg);
   }
+
+  #header-nav.active + div {
+    display: block;
+  }
 }
 
 .coins-table {

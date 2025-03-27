@@ -15,10 +15,11 @@
     <title>Moedas - API</title>
 </head>
 
-<body class="font-display bg-primary text-[1rem] lg:flex lg:flex-col lg:justify-between min-h-dvh max-w-dvw ">
+<body
+    class="font-display bg-primary text-[1rem] lg:flex lg:flex-col lg:justify-between min-h-dvh max-w-full overflow-x-hidden">
     <header class="bg-white w-full">
         <div
-            class="max-w-5xl mx-auto flex justify-between items-center max-md:px-10 py-2 text-2xl font-bold text-primary md:max-w-140 lg:max-w-5xl">
+            class="max-w-5xl mx-auto flex justify-between items-center max-xl:px-6 py-2 text-2xl font-bold text-primary md:max-w-140 lg:max-w-5xl">
             <a href="#" class="flex items-center justify-center gap-1.5">
                 <i class="bi bi-coin text-4xl"></i>
                 <span class="text-second">API</span>
@@ -35,22 +36,23 @@
                 <a href="./pages/currency-quotation.html" class="duration-300 hover:text-primary">Cotação</a>
                 <a href="#" class="duration-300 hover:text-primary">Cripto</a>
             </nav>
+            <div class="hidden fixed h-dvh w-full top-0 right-0 bg-[#000000bb]"></div>
         </div>
+
     </header>
     <main class="text-white mt-20 w-full">
-        <div class="max-md:px-10 max-w-5xl w-full mx-auto flex items-center justify-center md:max-w-140 lg:max-w-5xl">
+        <div class="max-xl:px-6 max-w-5xl w-full mx-auto flex items-center justify-center md:max-w-140 lg:max-w-5xl">
             <section id="hero" class="lg:flex w-full md:gap-4 lg:justify-between lg:gap-1">
                 <div class="flex flex-col min-[470px]:items-center lg:items-start">
-                    <h1 class="text-5xl font-bold sm:text-center lg:text-left lg:text-[3.25rem]">
+                    <h1 class="text-5xl font-bold text-center lg:text-left lg:text-[3.25rem]">
                         Moedas
                         <span class="text-yellow">API</span>
                     </h1>
-                    <p
-                        class="mt-8 md:mt-12 text-lg max-sm:text-left min-[470px]:text-center text-center lg:text-left lg:text-2xl">
+                    <p class="mt-8 md:mt-12 text-lg text-center lg:text-left lg:text-2xl">
                         O mundo financeiro em um só lugar.<br> Vejas as mudanças em tempo real aqui.
                     </p>
 
-                    <div class="text-xl mt-12 md:mt-16 flex items-center justify-start gap-6 lg:text-[3rem]">
+                    <div class="text-xl mt-12 md:mt-16 flex items-center justify-center gap-6 lg:text-[3rem]">
                         <span class="text-5xl text-yellow font-bold lg:text-[5rem]">R$</span>
                         <i class="bi bi-arrow-right"></i>
 
