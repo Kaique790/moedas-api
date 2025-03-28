@@ -10,6 +10,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
         rel="stylesheet" />
+    <link rel="shortcut icon" href="../fav.webp" type="image/x-icon">
 
     <link rel="stylesheet" href="../src/css/output.css" />
     <title>Moedas - API</title>
@@ -45,13 +46,14 @@
                 <span class="text-yellow">24h</span>
             </h1>
 
-            <section id="select-coins" class="mt-14 lg:flex gap-4 w-full justify-between">
+            <form novalidate id="converter-coins" class="mt-14 lg:flex gap-4 w-full justify-between">
                 <div
                     class="font-bold text-primary bg-white p-6 flex flex-col gap-4 text-5xl rounded-2xl border-b-8 border-second lg:max-w-80">
-                    <input type="number" value="14.30" id="value-provided" class="border-b-2 border-second">
+                    <input id="value-provided" type="number" value="0.00"
+                        class="border-2 border-transparent border-b-2 border-b-second px-2">
 
-                    <select class="text-second font-bold text-4xl max-w-[8rem]">
-                        <option selected>BRL</option>
+                    <select id="first-coin-provided" class="text-second font-bold text-4xl max-w-[8rem]">
+                        <option value="0" selected>SELECIONE</option>
                     </select>
                 </div>
 
@@ -63,15 +65,16 @@
                 </div>
 
                 <div
-                    class="font-bold text-primary bg-white p-6 flex flex-col gap-4 text-5xl rounded-2xl border-b-8 border-second lg:max-w-80">
-                    <input type="number" value="14.30" id="value-provided" class="border-b-2 border-second">
+                    class="font-bold text-primary bg-white p-6 flex flex-col gap-4 text-5xl rounded-2xl border-b-8 border-second min-w-80 lg:max-w-80">
+                    <div id="conversion-result" class="px-2 py-3.5 pb-3.5 overflow-y-hidden overflow-x-auto">
+                        0.00
+                    </div>
 
-                    <select class="text-second font-bold text-4xl max-w-[8rem]">
-                        <option selected>BRL</option>
-                        <option>BRL</option>
+                    <select id="last-coin-provided" class="text-second font-bold text-4xl max-w-[8rem]">
+                        <option value="0" selected>SELECIONE</option>
                     </select>
                 </div>
-            </section>
+            </form>
 
         </div>
     </main>

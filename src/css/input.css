@@ -14,14 +14,15 @@
 body {
   scrollbar-width: thin;
   scrollbar-color: #24242465 var(--color-white);
-}
 
-#select-coin option[selected] {
-  color: var(--color-second);
+  * {
+    scrollbar-width: thin;
+  }
 }
 
 ::-webkit-scrollbar {
   width: 0.25rem;
+  height: 0.25rem;
   background: var(--color-white);
 }
 
@@ -77,5 +78,34 @@ body {
     td:nth-child(2) {
       text-align: center;
     }
+  }
+}
+
+form {
+  input,
+  select {
+    outline: none;
+  }
+
+  select {
+    border: 2px solid transparent;
+
+    option:not([selected]) {
+      color: var(--color-second);
+    }
+  }
+
+  input.error {
+    border-radius: 0.7rem;
+    border: 2px solid var(--color-red-500);
+
+    option[selected] {
+      color: var(--color-red);
+    }
+  }
+
+  select.error {
+    border-bottom: 2px solid var(--color-red-500);
+    color: var(--color-red-500);
   }
 }
