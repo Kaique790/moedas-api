@@ -1,5 +1,7 @@
-import { main } from "./services.js";
+import { getValues, main } from "./services.js";
 export { toggleMenu } from "./home.js";
+
+const url = "https://economia.awesomeapi.com.br/json/all";
 
 function addOptionsCoinsInSelect(codeCoin) {
   const optionsLists = document.querySelectorAll("#converter-coins select");
@@ -14,7 +16,7 @@ function addOptionsCoinsInSelect(codeCoin) {
 }
 
 async function addDatasInOption() {
-  const coins = await main();
+  const coins = await main(url);
 
   const coinsCode = coins.map(([key, value]) => {
     return value.code;
@@ -23,6 +25,15 @@ async function addDatasInOption() {
   coinsCode.forEach((coinCode) => {
     addOptionsCoinsInSelect(coinCode);
   });
+}
+
+async function getCoinsValue(firstCoinCode, lastCoinCode) {
+  const coinsProvided = await getValues(
+    `https://economia.awesomeapi.com.br/last/${firstCoinCode}-BRL,${lastCoinCode}-BRL`
+  );
+
+  const firstCoinValue = coinsProvided[`${firstCoinCode}BRL`].bid;
+  const lastCoinValue = coinsProvided[`${lastCoinCode}BRL`].bid;
 }
 
 addDatasInOption();
@@ -43,6 +54,8 @@ form.addEventListener("submit", (event) => {
   const isValueValid = validateValueProvided(valueProvidedInput);
   const isFirstCoinValid = validateCoinProvided(firstCoinProvided);
   const isLastCoinValid = validateCoinProvided(lastCoinProvided);
+
+  getCoinsValue(firstCoinProvided.value, lastCoinProvided.value);
 
   if (isValueValid && isFirstCoinValid && isLastCoinValid) {
     htmlResult.textContent = (valueProvidedInput.value * 10).toFixed(2);

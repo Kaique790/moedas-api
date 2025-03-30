@@ -2,6 +2,8 @@ import { main } from "./services.js";
 const showNav = document.getElementById("show-nav");
 const backNav = document.getElementById("back-nav");
 
+const url = "https://economia.awesomeapi.com.br/json/all";
+
 backNav.addEventListener("click", () => toggleMenu());
 showNav.addEventListener("click", () => toggleMenu());
 
@@ -43,7 +45,7 @@ function addTrInTable(coin, pricing, change) {
 }
 
 async function addDatasInTable() {
-  const coins = await main();
+  const coins = await main(url);
   const tableExists = document.getElementById("rates-body");
 
   const coinsList = coins.map(([key, value]) => {

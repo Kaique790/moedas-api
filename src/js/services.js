@@ -1,6 +1,6 @@
-async function getValues() {
+export async function getValues(url) {
   try {
-    const response = await fetch("https://economia.awesomeapi.com.br/json/all");
+    const response = await fetch(url);
 
     const coins = await response.json();
 
@@ -11,8 +11,8 @@ async function getValues() {
   }
 }
 
-export async function main() {
-  const coinsData = await getValues();
+export async function main(url) {
+  const coinsData = await getValues(url);
 
   const coins = Object.entries(coinsData);
 
