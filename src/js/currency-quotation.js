@@ -26,19 +26,20 @@ async function addDatasInOption() {
     addOptionsCoinsInSelect(coinCode);
   });
 }
-
-async function getCoinsValue(firstCoinCode, lastCoinCode) {
-  const coinsProvided = await getValues(
-    `https://economia.awesomeapi.com.br/last/${firstCoinCode}-BRL,${lastCoinCode}-BRL`
-  );
-
-  const firstCoinValue = coinsProvided[`${firstCoinCode}BRL`].bid;
-  const lastCoinValue = coinsProvided[`${lastCoinCode}BRL`].bid;
-}
-
 addDatasInOption();
 
 // Validations
+
+async function getCoinsValue(value, currencyProvided, converTo) {
+  const coinsProvided = await getValues(
+    `https://economia.awesomeapi.com.br/last/${currencyProvided}-${converTo}`
+  );
+  const coin = `${currencyProvided}${converTo}`;
+  const quoteValue = coinsProvided[coin].bid;
+
+  const result = value * quoteValue;
+  return result;
+}
 
 const form = document.getElementById("converter-coins");
 
@@ -48,17 +49,30 @@ const htmlResult = document.getElementById("conversion-result");
 const firstCoinProvided = document.getElementById("first-coin-provided");
 const lastCoinProvided = document.getElementById("last-coin-provided");
 
-form.addEventListener("submit", (event) => {
+form.addEventListener("submit", async (event) => {
   event.preventDefault();
 
   const isValueValid = validateValueProvided(valueProvidedInput);
   const isFirstCoinValid = validateCoinProvided(firstCoinProvided);
   const isLastCoinValid = validateCoinProvided(lastCoinProvided);
 
-  getCoinsValue(firstCoinProvided.value, lastCoinProvided.value);
+  const isFormValid = isValueValid && isFirstCoinValid && isLastCoinValid;
 
-  if (isValueValid && isFirstCoinValid && isLastCoinValid) {
-    htmlResult.textContent = (valueProvidedInput.value * 10).toFixed(2);
+  if (firstCoinProvided.value === lastCoinProvided.value) {
+    lastCoinProvided.classList.add("error");
+    firstCoinProvided.classList.add("error");
+    return;
+  }
+
+  const result = await getCoinsValue(
+    valueProvidedInput.value,
+    firstCoinProvided.value,
+    lastCoinProvided.value
+  );
+
+  if (isFormValid) {
+    htmlResult.textContent = result.toFixed(2);
+    return;
   }
 });
 
