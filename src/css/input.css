@@ -40,18 +40,19 @@ body {
 
 @media (width < 48rem) {
   #header-nav {
-    transform: rotate(90deg);
     transition: all 0.5s;
+    right: 0;
   }
 
   #header-nav.active {
     top: 0;
-    right: 0;
-    transform: rotate(0deg);
   }
 
   #header-nav.active + div {
     display: block;
+    z-index: 1;
+
+    backdrop-filter: blur(3px);
   }
 }
 
@@ -107,5 +108,28 @@ form {
   select.error {
     border-bottom: 2px solid var(--color-red-500);
     color: var(--color-red-500);
+  }
+}
+
+.loading {
+  display: block;
+
+  width: 60px;
+  height: 60px;
+
+  background-color: transparent;
+
+  border-radius: 100%;
+  border: 0.5rem solid var(--color-orange);
+  border-top: 0.5rem solid transparent;
+  animation: spin 2s ease-in-out infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
   }
 }
