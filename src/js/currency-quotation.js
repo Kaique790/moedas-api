@@ -1,7 +1,15 @@
 import { getValues, main } from "./services.js";
-export { toggleMenu } from "./home.js";
+import { SetLoading } from "./utils.js";
 
 const buttonSubmit = document.getElementById("converter-button");
+
+const form = document.getElementById("converter-coins");
+
+const valueProvidedInput = document.getElementById("value-provided");
+const firstCoinProvided = document.getElementById("first-coin-provided");
+const lastCoinProvided = document.getElementById("last-coin-provided");
+
+const htmlResult = document.getElementById("conversion-result");
 
 const url = "https://economia.awesomeapi.com.br/json/all";
 
@@ -28,43 +36,33 @@ async function addDatasInOption() {
     addOptionsCoinsInSelect(coinCode);
   });
 }
-addDatasInOption();
-
-// Validations
 
 async function getCoinsValue(value, currencyProvided, converTo) {
-  const coinsProvided = await getValues(
-    `https://economia.awesomeapi.com.br/last/${currencyProvided}-${converTo}`
-  );
-  const coin = `${currencyProvided}${converTo}`;
-  const quoteValue = coinsProvided[coin].bid;
+  try {
+    const coinsProvided = await getValues(
+      `https://economia.awesomeapi.com.br/last/${currencyProvided}-${converTo}`,
+    );
+    const coin = `${currencyProvided}${converTo}`;
+    const quoteValue = coinsProvided[coin].bid;
 
-  const result = value * quoteValue;
-  return result;
+    const result = value * quoteValue;
+    return result;
+  } catch (error) {
+    console.error(error);
+  }
 }
 
-const form = document.getElementById("converter-coins");
+async function convertCurrency(value, fromCurrency, toCurrency) {
+  try {
+    const result = await getCoinsValue(value, fromCurrency, toCurrency);
+    htmlResult.textContent = result.toFixed(2);
+  } catch (error) {
+    const rate = await getCoinsValue(1, toCurrency, fromCurrency);
+    console.log(rate);
+    const result = value / rate;
 
-const valueProvidedInput = document.getElementById("value-provided");
-const htmlResult = document.getElementById("conversion-result");
-
-const firstCoinProvided = document.getElementById("first-coin-provided");
-const lastCoinProvided = document.getElementById("last-coin-provided");
-
-export function SetLoading(isloading, parent, posLoadtext) {
-  const loading = document.createElement("span");
-  parent.disabled = true;
-
-  if (isloading === false) {
-    loading.classList.remove("loading");
-    parent.innerText = posLoadtext;
-    parent.disabled = false;
-    return;
+    htmlResult.textContent = result.toFixed(6);
   }
-
-  loading.classList.add("loading");
-  parent.innerHTML = "";
-  parent.appendChild(loading);
 }
 
 form.addEventListener("submit", async (event) => {
@@ -82,34 +80,22 @@ form.addEventListener("submit", async (event) => {
     return;
   }
 
-  SetLoading(true, buttonSubmit, " ");
+  if (!isFormValid) return;
 
-  let result = 0;
-
-  if (isFormValid) {
-    try {
-      result = await getCoinsValue(
-        valueProvidedInput.value,
-        firstCoinProvided.value,
-        lastCoinProvided.value
-      );
-
-      if (result === undefined) {
-        SetLoading(false, buttonSubmit, "Erro ao converter moeda");
-        return;
-      }
-
-      htmlResult.textContent = result.toFixed(2);
-      return;
-    } catch (error) {
-      return SetLoading(false, buttonSubmit, "Error ao converter moeda");
-    } finally {
-      return SetLoading(false, buttonSubmit, "Converter");
-    }
+  try {
+    convertCurrency(
+      valueProvidedInput.value,
+      firstCoinProvided.value,
+      lastCoinProvided.value,
+    );
+  } catch (err) {
+    alert("Ocorreu um erro ao converter a moeda");
+  } finally {
+    return SetLoading(false, buttonSubmit, "Converter");
   }
-
-  return SetLoading(false, undefined, "Converter");
 });
+
+// Validations
 
 function validateValueProvided(input) {
   if (
@@ -127,7 +113,7 @@ function validateValueProvided(input) {
 }
 
 function validateCoinProvided(select) {
-  if (select.value == 0) {
+  if (select.value === "0") {
     select.classList.add("error");
     return false;
   }
@@ -135,3 +121,5 @@ function validateCoinProvided(select) {
   select.classList.remove("error");
   return true;
 }
+
+addDatasInOption();

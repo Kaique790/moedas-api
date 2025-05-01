@@ -1,17 +1,6 @@
 import { main } from "./services.js";
-const showNav = document.getElementById("show-nav");
-const backNav = document.getElementById("back-nav");
 
 const url = "https://economia.awesomeapi.com.br/json/all";
-
-backNav.addEventListener("click", () => toggleMenu());
-showNav.addEventListener("click", () => toggleMenu());
-
-const headerNav = document.getElementById("header-nav");
-
-export function toggleMenu() {
-  headerNav.classList.toggle("active");
-}
 
 function addTrInTable(coin, pricing, change) {
   const ratesTableBody = document.getElementById("rates-body");
@@ -30,11 +19,11 @@ function addTrInTable(coin, pricing, change) {
 
   if (change > 0) {
     changeTd.textContent = `↑ ${change}%`;
-  }
-
-  if (change < 0) {
+  } else if (change < 0) {
     changeTd.textContent = `↓ ${change}%`;
     changeTd.style.color = "red";
+  } else {
+    changeTd.textContent = `${change}%`;
   }
 
   trElement.appendChild(coinTd);

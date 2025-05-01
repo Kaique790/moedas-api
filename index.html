@@ -1,122 +1,175 @@
-<!DOCTYPE html>
-<html lang="pt-BR" class="sm:text-[1.1rem]">
-
-<head>
+<!doctype html>
+<html lang="pt-BR">
+  <head>
     <meta charset="UTF-8" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link
-        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-        rel="stylesheet" />
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="./src/css/output.css" />
     <title>Moedas - API</title>
-    <link rel="shortcut icon" href="./fav.webp" type="image/x-icon">
-</head>
+    <link rel="shortcut icon" href="./fav.webp" type="image/x-icon" />
+  </head>
 
-<body
-    class="font-display bg-primary text-[1rem] lg:flex lg:flex-col lg:justify-between min-h-dvh max-w-full overflow-x-hidden">
-    <header class="bg-white w-full">
+  <body
+    class="font-display bg-primary min-h-screen max-w-full overflow-x-hidden text-[1rem] sm:text-[1.1rem] lg:flex lg:flex-col lg:justify-between"
+  >
+    <header class="w-full bg-white">
+      <div
+        class="text-primary md:max-w-140 mx-auto flex max-w-5xl items-center justify-between py-2 text-2xl font-bold max-xl:px-6 lg:max-w-5xl"
+      >
+        <a href="#" class="flex items-center justify-center gap-1.5">
+          <i class="bi bi-coin text-4xl"></i>
+          <span class="text-second">API</span>
+        </a>
+        <div class="md:hidden">
+          <i id="show-nav" class="bi bi-list cursor-pointer text-3xl"></i>
+        </div>
+        <nav
+          id="header-nav"
+          class="text-second max-md:border-primary flex items-center gap-10 text-[1.3rem] max-md:fixed max-md:top-[100%] max-md:z-10 max-md:min-h-screen max-md:w-[60%] max-md:flex-col max-md:justify-around max-md:border-l-4 max-md:bg-white max-md:text-3xl"
+        >
+          <i
+            id="back-nav"
+            class="bi bi-x-lg text-primary absolute right-3 top-3 z-50 cursor-pointer text-3xl md:hidden"
+          ></i>
+
+          <a
+            href="#"
+            class="text-primary hover:text-second underline duration-300"
+            >Início</a
+          >
+          <a
+            href="./pages/currency-quotation.html"
+            class="hover:text-primary duration-300"
+            >Cotação</a
+          >
+          <a href="#" class="hover:text-primary duration-300">Cripto</a>
+        </nav>
         <div
-            class="max-w-5xl mx-auto flex justify-between items-center max-xl:px-6 py-2 text-2xl font-bold text-primary md:max-w-140 lg:max-w-5xl">
-            <a href="#" class="flex items-center justify-center gap-1.5">
-                <i class="bi bi-coin text-4xl"></i>
-                <span class="text-second">API</span>
-            </a>
-            <div class="md:hidden">
-                <i id="show-nav" class="bi bi-list text-3xl cursor-pointer"></i>
-            </div>
-            <nav id="header-nav"
-                class="flex items-center gap-10 text-[1.3rem] text-second max-md:fixed max-md:min-h-dvh max-md:top-[100%] max-md:bg-white max-md:w-[60%] max-md:flex-col max-md:justify-around max-md:text-3xl max-md:z-10 max-md:border-l-4 max-md:border-primary">
-                <i id="back-nav"
-                    class="bi bi-x-lg text-3xl cursor-pointer z-50 absolute text-primary top-3 right-3 md:hidden"></i>
-
-                <a href="#" class="underline text-primary duration-300 hover:text-second">Início</a>
-                <a href="./pages/currency-quotation.html" class="duration-300 hover:text-primary">Cotação</a>
-                <a href="#" class="duration-300 hover:text-primary">Cripto</a>
-            </nav>
-            <div class="hidden fixed h-dvh w-full top-0 right-0 bg-[#000000bb]"></div>
-        </div>
-
+          class="fixed right-0 top-0 hidden h-dvh w-full bg-[#000000bb]"
+        ></div>
+      </div>
     </header>
-    <main class="text-white mt-20 w-full">
-        <div class="max-xl:px-6 max-w-5xl w-full mx-auto flex items-center justify-center md:max-w-140 lg:max-w-5xl">
-            <section id="hero" class="lg:flex w-full md:gap-4 lg:justify-between lg:gap-1">
-                <div class="flex flex-col min-[470px]:items-center lg:items-start">
-                    <h1 class="text-5xl font-bold text-center lg:text-left lg:text-[3.25rem]">
-                        Moedas
-                        <span class="text-yellow">API</span>
-                    </h1>
-                    <p class="mt-8 md:mt-12 text-lg text-center lg:text-left lg:text-2xl">
-                        O mundo financeiro em um só lugar.<br> Vejas as mudanças em tempo real aqui.
-                    </p>
+    <main class="mt-20 w-full text-white">
+      <div
+        class="md:max-w-140 mx-auto flex w-full max-w-5xl items-center justify-center max-xl:px-6 lg:max-w-5xl"
+      >
+        <section
+          id="hero"
+          class="w-full md:gap-4 lg:flex lg:justify-between lg:gap-1"
+        >
+          <div class="flex flex-col min-[470px]:items-center lg:items-start">
+            <h1
+              class="text-center text-5xl font-bold lg:text-left lg:text-[3.25rem]"
+            >
+              Moedas
+              <span class="text-yellow">API</span>
+            </h1>
+            <p
+              class="mt-8 text-center text-lg md:mt-12 lg:text-left lg:text-2xl"
+            >
+              O mundo financeiro em um só lugar.<br />
+              Vejas as mudanças em tempo real aqui.
+            </p>
 
-                    <div class="text-xl mt-12 md:mt-16 flex items-center justify-center gap-6 lg:text-[3rem]">
-                        <span class="text-5xl text-yellow font-bold lg:text-[5rem]">R$</span>
-                        <i class="bi bi-arrow-right"></i>
+            <div
+              class="mt-12 flex items-center justify-center gap-6 text-xl md:mt-16 lg:text-[3rem]"
+            >
+              <span class="text-yellow text-5xl font-bold lg:text-[5rem]"
+                >R$</span
+              >
+              <i class="bi bi-arrow-right"></i>
 
-                        <span class="border-5 rounded-full p-2 px-2.5 lg:px-4 inline-flex items-center justify-center">
-                            <i class="bi bi-currency-euro mr-1"></i>
-                        </span>
+              <span
+                class="border-5 inline-flex items-center justify-center rounded-full p-2 px-2.5 lg:px-4"
+              >
+                <i class="bi bi-currency-euro mr-1"></i>
+              </span>
 
-                        <i class="bi bi-arrow-right"></i>
+              <i class="bi bi-arrow-right"></i>
 
-                        <span class="border-5 rounded-full p-2 px-3 lg:px-4.5 inline-flex items-center justify-center">
-                            <i class="bi bi-currency-dollar"></i>
-                        </span>
-                    </div>
-                </div>
+              <span
+                class="border-5 lg:px-4.5 inline-flex items-center justify-center rounded-full p-2 px-3"
+              >
+                <i class="bi bi-currency-dollar"></i>
+              </span>
+            </div>
+          </div>
 
+          <section
+            class="text-primary border-second mt-16 flex flex-col items-center rounded-2xl border-b-8 bg-white px-6 pb-8 lg:mt-0"
+          >
+            <h2
+              class="bg-yellow mt-[-1rem] inline rounded-lg p-3 text-center text-2xl font-bold shadow-md sm:px-20"
+            >
+              Tempo real
+            </h2>
 
-                <section
-                    class="mt-16 px-6 pb-8 flex items-center flex-col bg-white text-primary rounded-2xl border-b-8 border-second lg:mt-0">
+            <div
+              id="table-container"
+              class="lg:max-h-70 mt-6 w-full max-w-[450px] overflow-auto text-lg font-bold"
+            >
+              <table
+                class="coins-table w-full border-collapse max-[430px]:min-w-[22rem] lg:min-w-[400px]"
+              >
+                <thead>
+                  <tr>
+                    <th class="bg-second rounded-l-lg text-left">Moeda</th>
+                    <th>Preço</th>
+                    <th
+                      class="bg-second max-[540px]:w-29 rounded-r-lg text-right"
+                    >
+                      /24h
+                    </th>
+                  </tr>
+                </thead>
 
-                    <h2
-                        class="text-center text-2xl font-bold shadow-md inline mt-[-1rem] rounded-lg p-3 bg-yellow sm:px-20">
-                        Tempo real
-                    </h2>
-
-
-                    <div id="table-container"
-                        class="mt-6 text-lg w-full font-bold max-w-[450px] lg:max-h-70 overflow-auto">
-                        <table class="coins-table w-full border-collapse lg:min-w-[400px] max-[430px]:min-w-[22rem]">
-                            <thead>
-                                <tr>
-                                    <th class="text-left rounded-l-lg bg-second">Moeda</th>
-                                    <th>Preço</th>
-                                    <th class="text-right rounded-r-lg bg-second max-[540px]:w-29">/24h</th>
-                                </tr>
-                            </thead>
-
-                            <tbody class="w-full" id="rates-body">
-                            </tbody>
-                        </table>
-                    </div>
-                </section>
-            </section>
-        </div>
+                <tbody class="w-full" id="rates-body"></tbody>
+              </table>
+            </div>
+          </section>
+        </section>
+      </div>
     </main>
 
-    <footer class="bg-white mt-[25vh] opacity-80">
-        <div class="max-sm:text-center max-w-5xl mx-auto flex flex-col justify-between items-center px-3 py-2 text-xl md:max-w-140 lg:max-w-5xl"">
-            <div class=" flex gap-6">
-            <a href="https://www.linkedin.com/in/kaique-bezerra-dos-santos-575700262/" target="_blank">
-                <i class="bi bi-linkedin cursor-pointer duration-300 hover:text-second"></i>
-            </a>
-            <a href="https://github.com/Kaique790" target="_blank">
-                <i class="bi bi-github cursor-pointer duration-300 hover:text-second"></i>
-            </a>
-            <a href="https://www.instagram.com/z_kaiq_z/" target="_blank">
-                <i class="bi bi-instagram cursor-pointer duration-300 hover:text-second"></i>
-            </a>
+    <footer class="mt-[25vh] bg-white opacity-80">
+      <div
+        class="md:max-w-140 mx-auto flex max-w-5xl flex-col items-center justify-between px-3 py-2 text-xl max-sm:text-center lg:max-w-5xl"
+      >
+        <div class="flex gap-6">
+          <a
+            href="https://www.linkedin.com/in/kaique-bezerra-dos-santos-575700262/"
+            target="_blank"
+          >
+            <i
+              class="bi bi-linkedin hover:text-second cursor-pointer duration-300"
+            ></i>
+          </a>
+          <a href="https://github.com/Kaique790" target="_blank">
+            <i
+              class="bi bi-github hover:text-second cursor-pointer duration-300"
+            ></i>
+          </a>
+          <a href="https://www.instagram.com/z_kaiq_z/" target="_blank">
+            <i
+              class="bi bi-instagram hover:text-second cursor-pointer duration-300"
+            ></i>
+          </a>
         </div>
         <p>&copy; Moedas API. Todos os direitos reservados</p>
-        </div>
+      </div>
     </footer>
 
     <script type="module" src="./src/js/services.js"></script>
     <script type="module" src="./src/js/home.js"></script>
-</body>
-
+    <script type="module" src="./src/js/utils.js"></script>
+  </body>
 </html>

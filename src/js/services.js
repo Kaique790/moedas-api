@@ -7,6 +7,7 @@ export async function getValues(url) {
     return coins;
   } catch (err) {
     console.error(err);
+    alert("Ocorreu um erro ao carregar as moedas do awesomeapi");
     return {};
   }
 }
