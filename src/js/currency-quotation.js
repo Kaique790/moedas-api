@@ -37,13 +37,12 @@ async function addDatasInOption() {
   });
 }
 
-async function getCoinsValue(value, currencyProvided, converTo) {
+export async function getCoinsValue(value, currencyProvided, converTo) {
+  const url = ""`https://economia.awesomeapi.com.br/last/${currencyProvided}-${converTo}`;
   try {
-    const coinsProvided = await getValues(
-      `https://economia.awesomeapi.com.br/last/${currencyProvided}-${converTo}`,
-    );
-    const coin = `${currencyProvided}${converTo}`;
-    const quoteValue = coinsProvided[coin].bid;
+    const coinProvided = await getValues(url);
+    const coinCode = `${currencyProvided}${converTo}`;
+    const quoteValue = coinProvided[coinCode].bid;
 
     const result = value * quoteValue;
     return result;
