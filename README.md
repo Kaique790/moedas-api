@@ -15,6 +15,7 @@ Escolhi esse projeto para ter uma base de trabalho sério com API's e muitos dad
 ## Fases
 - 1. Capturar as moedas e mostrá-las em telas
 - 2. Converter as moedas
+- 3. Consumir uma API única para retornar vários de dados de criptomoedas como valor de mercado, qauntidade em circulamento no mercado, dentre outros mais profundos. 
 
 ### Capturando moedas
 Parte mais fácil, foi apenas capturá-las pela api púplica do awesomeAPI, transformá-las em um array (awesomeAPI às retorna como objeto). Desse array, para cada moeda foi adicionado uma linha na tabela e os dados foram formatados e alocados. 
@@ -58,7 +59,7 @@ cotação do etherium em dólar = 2000🚫
 
 ``` javascript
 const value = prompt("Digite um valor")
-const usdINEth = "error"
+const usdInEth = "error"
 
 if(usdInEth === "error") {
   ethInUsd = 2000
@@ -76,5 +77,19 @@ OBS: Os valores e as funções são só pequenos exemplos. A realidade envolve t
 ### Parte 3
 Ele também não acha uma cripto moeda na cotação de outra, então teremos que fazer a busca das moedas em uma outra moeda em comum, tipo o USD, para daí fazer a conversão.
 
-- Em andamento...
+- Mas... essa lógica poderia, na verdade deveria, ser aplicada para toda a aplicação, então fiz a nova funcionalidade de converter todas as moedas para uma moeda base, daí prossegui fazendo as conversões.
+
+---
+
+### Considerações finais na conversão de moedas
+Após aplicar muita lógica, vi que deveria simplificar e usar uma moeda como base, essa funcionalidade resolveu todos os erros nas horas das conversões, esses erros eram tratado um dentro do outro. Resolvendo eles, o código ficou bem mais limpo, conciso e de fácil entedimento. Mas a experiência nessa parte foi maravilhosa para lidar com erros e suas tratativas e também consolidar mais ainda a lógica de programação e traduzir problemas em códigos.
+
+---
+## Fim da conversão de moedas
+---
+
+## API de criptomoedas
+
+- Em progresso...
+
 
