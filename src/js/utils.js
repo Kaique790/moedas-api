@@ -1,4 +1,4 @@
-// loading in promises
+// loading function
 export function SetLoading(isloading, parent, posLoadtext) {
   const loading = document.createElement("span");
   parent.disabled = true;

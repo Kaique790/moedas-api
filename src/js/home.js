@@ -4,17 +4,13 @@ const url = "https://economia.awesomeapi.com.br/json/all";
 
 function addTrInTable(coin, pricing, change) {
   const ratesTableBody = document.getElementById("rates-body");
-
   const trElement = document.createElement("tr");
-
   const coinTd = document.createElement("td");
-  coinTd.textContent = coin;
-
   const princingTd = document.createElement("td");
-  princingTd.textContent = `${pricing}R$`;
-
   const changeTd = document.createElement("td");
 
+  coinTd.textContent = coin;
+  princingTd.textContent = `${pricing}R$`;
   changeTd.textContent = `${change}%`;
 
   if (change > 0) {

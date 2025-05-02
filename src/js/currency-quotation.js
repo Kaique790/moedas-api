@@ -2,7 +2,6 @@ import { getValues, main } from "./services.js";
 import { SetLoading } from "./utils.js";
 
 const buttonSubmit = document.getElementById("converter-button");
-
 const form = document.getElementById("converter-coins");
 
 const valueProvidedInput = document.getElementById("value-provided");
@@ -42,12 +41,32 @@ export async function getCoinsValue(value, currencyProvided, converTo) {
   try {
     const coinProvided = await getValues(url);
     const coinCode = `${currencyProvided}${converTo}`;
-    const quoteValue = coinProvided[coinCode].bid;
+    const quoteValue = parseFloat(coinProvided[coinCode].bid);
+
+    if (isNaN(quoteValue)) {
+      throw new Error(`Valor de cotação inválido para ${coinCode}`);
+    }
 
     const result = value * quoteValue;
     return result;
   } catch (error) {
+    throw new Error(error);
     console.error(error);
+  }
+}
+
+async function inverseSearch(value = 1, fromCurrency, toCurrency) {
+  try {
+    const invertedRate = await getCoinsValue(1, toCurrency, fromCurrency);
+    const result = value / invertedRate;
+
+    htmlResult.textContent = result.toFixed(6);
+  } catch (invertedError) {
+    htmlResult.textContent = "Erro ao converter moedas.";
+    console.error(
+      "Conversão falhou em ambas as direções:",
+      invertedError.message,
+    );
   }
 }
 
@@ -56,11 +75,7 @@ async function convertCurrency(value, fromCurrency, toCurrency) {
     const result = await getCoinsValue(value, fromCurrency, toCurrency);
     htmlResult.textContent = result.toFixed(2);
   } catch (error) {
-    const rate = await getCoinsValue(1, toCurrency, fromCurrency);
-    console.log(rate);
-    const result = value / rate;
-
-    htmlResult.textContent = result.toFixed(6);
+    inverseSearch(value, toCurrency, fromCurrency);
   }
 }
 
