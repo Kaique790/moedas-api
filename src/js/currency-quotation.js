@@ -36,47 +36,29 @@ async function addDatasInOption() {
   });
 }
 
-export async function getCoinsValue(value, currencyProvided, converTo) {
-  const url = ""`https://economia.awesomeapi.com.br/last/${currencyProvided}-${converTo}`;
+export async function getCoinValue(currency) {
+  currency = currency.toUpperCase();
+  if (currency === "USD") return 1;
+
   try {
-    const coinProvided = await getValues(url);
-    const coinCode = `${currencyProvided}${converTo}`;
-    const quoteValue = parseFloat(coinProvided[coinCode].bid);
+    const url = `https://economia.awesomeapi.com.br/last/${currency}-usd`;
 
-    if (isNaN(quoteValue)) {
-      throw new Error(`Valor de cotação inválido para ${coinCode}`);
-    }
+    const coin = await getValues(url);
+    const coinValue = coin[`${currency}USD`].bid;
 
-    const result = value * quoteValue;
-    return result;
-  } catch (error) {
-    throw new Error(error);
-    console.error(error);
+    return coinValue;
+  } catch (err) {
+    console.error(err);
+    alert("Ocorreu um erro ao carregar as moedas do awesomeAPI");
   }
 }
 
-async function inverseSearch(value = 1, fromCurrency, toCurrency) {
-  try {
-    const invertedRate = await getCoinsValue(1, toCurrency, fromCurrency);
-    const result = value / invertedRate;
+async function convertCurrencies(value, fromCurrency, toCurrency) {
+  let firstValue = await getCoinValue(fromCurrency);
+  let lastValue = await getCoinValue(toCurrency);
 
-    htmlResult.textContent = result.toFixed(6);
-  } catch (invertedError) {
-    htmlResult.textContent = "Erro ao converter moedas.";
-    console.error(
-      "Conversão falhou em ambas as direções:",
-      invertedError.message,
-    );
-  }
-}
-
-async function convertCurrency(value, fromCurrency, toCurrency) {
-  try {
-    const result = await getCoinsValue(value, fromCurrency, toCurrency);
-    htmlResult.textContent = result.toFixed(2);
-  } catch (error) {
-    inverseSearch(value, toCurrency, fromCurrency);
-  }
+  const result = value * (firstValue / lastValue);
+  return result;
 }
 
 form.addEventListener("submit", async (event) => {
@@ -97,11 +79,14 @@ form.addEventListener("submit", async (event) => {
   if (!isFormValid) return;
 
   try {
-    convertCurrency(
+    SetLoading(true, buttonSubmit, "");
+    const result = await convertCurrencies(
       valueProvidedInput.value,
       firstCoinProvided.value,
       lastCoinProvided.value,
     );
+
+    htmlResult.textContent = parseFloat(result.toFixed(6));
   } catch (err) {
     alert("Ocorreu um erro ao converter a moeda");
   } finally {
