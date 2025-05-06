@@ -59,11 +59,7 @@ Vamos supor que queremos o valor de 1 dólar em etherium
 1. cotação do dólar em etherium = error🚫
 
 2. Vamos buscar o inverso:
-<<<<<<< HEAD
-   cotação do etherium em dólar = 2000🚫
-=======
-cotação do etherium em dólar = 2000
->>>>>>> 72346fcd653ba550612344481af942f6acc5dfef
+   cotação do etherium em dólar = 2000
 
 3. conversão = valor / cotação inversa
 
